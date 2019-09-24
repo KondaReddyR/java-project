@@ -18,6 +18,8 @@ jobs:
         git remote -v
         git remote rm origin
         git remote add origin https://KondaReddyR:{{github.token}}@github.com/KondaReddyR/java-project.git
+        git remote -v
+        git checkout -b master
         echo ${env:PATH}
         echo The ${{ github.event_name }} event triggered this step.
         mvn archetype:generate -DgroupId=org.eguys.hashing -DartifactId=java-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
