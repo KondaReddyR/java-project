@@ -32,4 +32,6 @@ jobs:
         git push origin master
 
     - name: Build with Maven
-      run: mvn package --file pom.xml
+      run: |
+        cd java-project
+        mvn package --file pom.xml
