@@ -15,7 +15,7 @@ jobs:
         java-version: 1.8
     - name: Generate project
       env:
-        GH_TOKEN = ${{ github.token }}
+        GH_TOKEN: ${{ github.token }}
       run: |
         git remote -v
         git remote rm origin
