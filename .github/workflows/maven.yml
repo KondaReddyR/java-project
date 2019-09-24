@@ -17,3 +17,6 @@ jobs:
       run: |
         cd java-project
         mvn package --file pom.xml
+        java -jar target/java-project-1.0-SNAPSHOT.jar 123456
+        mvn deploy -Dregistry=https://maven.pkg.github.com/KondaReddyR -Dtoken=${{ github.token }}
+        
