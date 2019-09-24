@@ -13,24 +13,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Generate project
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        git remote -v
-        git remote rm origin
-        git remote add origin https://KondaReddyR:$GH_TOKEN@github.com/KondaReddyR/java-project.git
-        git remote -v
-        git checkout -b master
-        echo ${env:PATH}
-        echo The ${{ github.event_name }} ${{github.token}} event triggered this step.
-        mvn archetype:generate -DgroupId=org.eguys.hashing -DartifactId=java-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-        git config user.name "Github Actions user"
-        git config user.email "kr@eguys.org"
-        git add .
-        git commit -am "Maven project template"
-        git push origin master
-
     - name: Build with Maven
       run: |
         cd java-project
