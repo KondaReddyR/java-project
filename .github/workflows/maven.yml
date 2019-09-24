@@ -15,11 +15,15 @@ jobs:
         java-version: 1.8
     - name: Generate project
       run: |
+        echo ${env:PATH}
+        echo The ${{ github.event_name }} event triggered this step.
         mvn archetype:generate -DgroupId=org.eguys.hashing -DartifactId=java-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
         git config user.name "Github Actions user"
         git config user.email "kr@eguys.org"
         git add .
         git commit -am "Maven project template"
+        git remote add origin https://KondaReddyR:{{github.token}}@github.com/KondaReddyR/java-project.git
         git push push origin master
+
     - name: Build with Maven
       run: mvn package --file pom.xml
