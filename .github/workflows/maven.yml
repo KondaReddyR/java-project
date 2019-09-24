@@ -23,8 +23,9 @@ jobs:
         git add .
         git commit -am "Maven project template"
         git remote -v
-        git remote add github https://KondaReddyR:{{github.token}}@github.com/KondaReddyR/java-project.git
-        git push push github master
+        gir remote rm origin
+        git remote add origin https://KondaReddyR:{{github.token}}@github.com/KondaReddyR/java-project.git
+        git push push origin master
 
     - name: Build with Maven
       run: mvn package --file pom.xml
